@@ -13,10 +13,17 @@ pygame.display.set_caption("Nado Game")
 # 배경 이미지 불러오기
 background = pygame.image.load("./pygame_basic/background.png")
 
+# 캐릭터(스프라이트) 불러오기
+character = pygame.image.load("./pygame_basic/character.png")
+character_size = character.get_rect().size #이미지의 크기를 구해옴
+character_width = character_size[0] #캐릭터의 가로 크기
+character_height = character_size[1] #캐릭터의 세로 크기
+
+# FPS
 clock = pygame.time.Clock()
+
 #event loop
 running = True #게임이 진행중인가?
-
 while running:
     dt = clock.tick(60) #게임화면의 초당 프레임 수를 설정
     for event in pygame.event.get(): 
@@ -25,7 +32,6 @@ while running:
         else : 
             pygame.display.update()
     
-    # screen.fill((0,0,255)); #색상으로 채우기
     screen.blit(background,(0,0)) #배경 그리기
     pygame.display.update() # 화면을 매프레임 업데이트
     
